@@ -57,6 +57,25 @@ const map = new mapboxgl.Map({
 
 map.on('load',function(){
   // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
+  map.addSource('housing_layer',{
+    'type':'vector',
+    'url': 'mapbox://meadowyt.1t3z6550'
+  });
+  // add a new layer with your polygons
+  map.addLayer({
+    'id':'NYCHA Developments',
+    'type':'fill',
+    'source':'housing_layer',
+    'source-layer':'Map_of_NYCHA_Developments-0suijc',
+    'paint':{
+      'fill-color':'#A12500',
+      'fill-opacity': 0.5
+    }
+  })
+});
+
+map.on('load',function(){
+  // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
   map.addSource('sandy_layer',{
     'type':'vector',
     'url': 'mapbox://meadowyt.atbsafs3'
